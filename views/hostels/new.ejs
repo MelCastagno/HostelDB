@@ -1,0 +1,40 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1 class="mt-5">New Venue</h1>
+    <form action="/hostels" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="input-group mb-3">
+            <span class="input-group-text">Title</span>
+            <input type="text" name="hostel[title]" class="form-control" required>
+            <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Location</span>
+            <input type="text" name="hostel[location]" class="form-control" required>
+            <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Images</span>
+            <input class="form-control" type="file" name="image" required multiple >
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Description</span>
+            <textarea class="form-control" name="hostel[description]" rows="4" required></textarea>
+            <div class="valid-feedback">Looks good!</div>
+        </div> 
+        <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input type="text" name="hostel[price]" class="form-control" aria-label="Amount (to the nearest dollar)" required placeholder="0">
+            <span class="input-group-text">.00</span>
+        </div> 
+        <button type="submit" class="btn btn-success">Add Hostel</button>
+    </form>
+    
+</body>
+<div class="mt-5">
+    <a href="/hostels">All Hostels</a>
+</div>
+   
+    </div>
+</div>
+

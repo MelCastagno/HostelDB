@@ -1,0 +1,68 @@
+<% layout('layouts/boilerplate') %>
+
+
+
+    <div class="container d-flex justify-content-center align-items-center my-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+                <div class="card shadow">
+                    <img src="https://images.unsplash.com/photo-1547371880-fac65c8600a2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-title">Register</h4>
+
+                        <form id="registerForm" action="/register" method="POST" class="needs-validation" novalidate>
+                            <div class="mb-3 input-group">
+                                <span class="input-group-text">Username</span>
+                                <input type="text" class="form-control" name="username" autofocus required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="mb-3 input-group">
+                                <span class="input-group-text">Email</span>
+                                <input type="email" class="form-control" name="email" id="email" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="mb-3 input-group">
+                                <span class="input-group-text">Password</span>
+                                <input type="password" class="form-control" name="password" id="password" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-success" >Register</button>
+                            </div>
+                            <p id="errorMessage" style="color: red;"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Añade un evento al formulario para validación al intentar enviarlo
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+          const password = document.getElementById('password').value;
+          const errorMessage = document.getElementById('errorMessage');
+      
+          let errors = [];
+      
+          // Validación de la contraseña
+          if (password.length < 8) {
+            errors.push('Password must be at least 8 characters long.');
+          }
+      
+          // Si hay errores, previene el envío del formulario y muestra los mensajes de error
+          if (errors.length > 0) {
+            event.preventDefault();
+            errorMessage.innerHTML = errors.join('<br>');
+          } else {
+            errorMessage.innerHTML = '';
+          }
+        });
+      </script>

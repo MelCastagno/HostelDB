@@ -1,0 +1,47 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+    <div class="col-6 offset-3">
+        <h1 class="mt-5">Edit hostel information</h1>
+    <form action="/hostels/<%= hostel._id %>?_method=PUT" method="POST" class=" needs-validation" novalidate enctype="multipart/form-data">
+        <div class="input-group mb-3">
+            <span class="input-group-text">Title</span>
+            <input type="text" name="hostel[title]" value="<%= hostel.title %>" class="form-control" required>
+            <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Location</span>
+            <input type="text" name="hostel[location]" value="<%= hostel.location%>" class="form-control" required>
+            <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Images</span>
+            <input class="form-control" type="file" name="image" multiple >
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Description</span>
+            <textarea class="form-control" name="hostel[description]" rows="4" required><%= hostel.description %></textarea>
+            <div class="valid-feedback">Looks good!</div>
+        </div> 
+        <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input type="text" name="hostel[price]" value="<%= hostel.price %>" class="form-control" aria-label="Amount (to the nearest dollar)" required>
+            <span class="input-group-text">.00</span>
+        </div> 
+        <div class="mb-3">
+            <% hostel.images.forEach(function(img, i) { %>
+                <img src="<%= img.url %>" alt="" class="img-thumbnail">
+                <div class="form-check-inline">
+                    <input type="checkbox" name="deleteImages[]" value="<%= img.filename %>" id="img<%= i %>">
+                </div>
+                <label for="img<%= i %>">Delete?</label>
+            <% }); %>
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+    <div class="my-5">
+        <a href="/hostels/<%= hostel._id %>">Back to Hostel</a>
+    </div>
+    </div>
+</div>
+
+    
