@@ -3,9 +3,14 @@ maptilersdk.config.apiKey = maptilerApiKey;
 const map = new maptilersdk.Map({
     container: 'map',
     style: maptilersdk.MapStyle.BRIGHT,
-    center: [-103.59179687498357, 40.66995747013945],
-    zoom: 3
 });
+
+const bounds = [
+    [-180, -90],
+    [180, 90]
+];
+
+map.fitBounds(bounds);
 
 map.on('load', function () {
     map.addSource('allHostels', {
