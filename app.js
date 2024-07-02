@@ -19,11 +19,11 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
-const dbUrl =  'mongodb://localhost:27017/hostel-db';
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/hostel-db';
 const MongoStore = require('connect-mongo')(session);
 const secret = process.env.SECRET || 'thisisasecret!';
 
-// process.env.DB_URL ||
+
 
 
 mongoose.connect(dbUrl);
