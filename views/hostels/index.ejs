@@ -12,7 +12,7 @@
                         <% if (!hostel.images || hostel.images.length === 0) { %>
                             <img src="https://images.unsplash.com/photo-1596431749951-1bbb4e396436?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Default hostel image" class="img-fluid">
                         <% } else { %>
-                            <img src="<%= hostel.images[0].url %>" alt="<%= hostel.title %>" class="img-fluid">
+                            <img src="<%= hostel.images[0].url %>" alt="<%= hostel.title %>" height="300" width="400">
                         <% } %>
                     </div>
                     <div class="col-md-8">

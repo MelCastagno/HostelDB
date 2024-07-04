@@ -46,7 +46,7 @@ HostelSchema.virtual('properties.popUpMarkup').get(function () {
     
     <a href="/hostels/${this._id}" style="text-decoration:none; color:black;">
     <h5>${this.title}</h5>
-    <img src="${this.images[0].url}" class="d-block w-100" alt="">
+    <img src="${this.images[0].url}" class="d-block w-100" height="150" >
     <h6 class="mt-2">$${this.price}/night</h6>
     </a>
     `
